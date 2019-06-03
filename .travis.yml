@@ -1,17 +1,33 @@
+# Sematice-Release CLI: https://github.com/semantic-release/cli#what-it-does
+# * https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/travis.md#nodejs-projects-configuration
+# Kent C Dodds Config: https://egghead.io/lessons/javascript-automating-releases-with-semantic-release
+
+# Travis.yml Cheat Sheet
+# https://devhints.io/travis
+
+sudo: false
 language: node_js
-
 node_js:
-  - 10
-
-jobs:
-  include:
-    # Define the release stage that runs semantic-release
-    - stage: release
-      node_js: lts/*
-      # Advanced: optionally overwrite your default `script` step to skip the tests
-      # script: skip
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - npx semantic-release
+  # ?q=node: https://github.com/creationix/nvm#usage
+  - node
+notifications:
+  email: true
+branches:
+  only:
+    - master
+    # - /^greenkeeper/.*$/
+before_install:
+  - npm i -g npm@^6.0.0
+install:
+  # https://github.com/npm/npm/issues/16866#issuecomment-305479009
+  - rm -f package-lock.json && npm install
+# keep the npm cache around to speed up installs
+cache: npm
+before_script:
+  - npm prune
+script:
+  # - npm run lint
+  # - npm run test
+  # - npm run build
+after_success:
+  - npm run semantic-release

@@ -17,6 +17,6 @@ function title(title) {
 module.exports = {
   listHeading,
   listContent,
-  seperator,
+  separator,
   title,
 }

@@ -33,20 +33,11 @@ opentype.load(fontPath, (err, fontData) => {
     } = {},
   } = fontData
 
-  const fontLanguages = wtf.detectLanguage(fontData, wtf.languageData)
+  const fontLanguages = wtf.getLanguageSupport(fontData, wtf.languageData)
 
-  const fontUnicodeBlocks = Object.entries(wtf.unicodeBlocks).reduce(
-    (acc, [block, langs]) => {
-      // console.log('block:', block)
-      // console.log('langs:', langs)
-
-      if (langs.some(lang => fontLanguages.includes(lang))) {
-        return [...acc, block]
-      }
-
-      return acc
-    },
-    [],
+  const fontUnicodeBlocks = wtf.getUnicodeBlocks(
+    fontLanguages,
+    wtf.unicodeBlocks,
   )
 
   console.log(

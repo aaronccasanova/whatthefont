@@ -1,17 +1,13 @@
 const latin = [
   'Afrikaans',
-  // 'Basque',
-  // 'Breton',
   'Catalan',
   'Danish',
   'Dutch',
   'English',
   'Finnish',
   'French',
-  // 'Gaelic',
   'German',
   'Icelandic',
-  // 'Irish',
   'Italian',
   'Norwegian',
   'Portuguese',
@@ -33,58 +29,16 @@ const latinExt = [
 ]
 
 const panEuropean = [
-  // 'Avar',
-  // 'Balkar',
   'Belarusian',
   'Bulgarian',
-  // 'Chechen',
-  // 'Erzya',
-  // 'Ingush',
-  // 'Lezgian',
   'Macedonian',
-  // 'Moldavian',
   'Ossetic',
-  'Russian',
-  'Serbian',
   'Ukrainian',
 ]
 
-const cyrillic = [
-  'English',
-  // 'Avar',
-  // 'Balkar',
-  'Belarusian',
-  'Bulgarian',
-  // 'Chechen',
-  // 'Erzya',
-  // 'Ingush',
-  // 'Lezgian',
-  'Macedonian',
-  // 'Moldavian',
-  'Ossetic',
-  'Russian',
-  'Serbian',
-  // 'Ukrainian English',
-]
+const cyrillic = ['Russian']
 
-const greek = ['English', 'Greek']
-
-const misc = [
-  'Maltese',
-  'Albanian',
-  'Arabic',
-  'Azerbaijani',
-  'Bosnian',
-  'Dzongkha',
-  'Hebrew',
-  'Persian',
-  'Swedish',
-  'Tibetan',
-  'Uzbek',
-  'Vietnamese',
-  'Yiddish',
-  'Zulu',
-]
+const greek = ['Greek']
 
 module.exports = {
   latin,
@@ -92,5 +46,4 @@ module.exports = {
   panEuropean,
   cyrillic,
   greek,
-  misc,
 }
